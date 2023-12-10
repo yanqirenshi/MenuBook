@@ -1,3 +1,3 @@
-import MenuBook from 'MenuBook.js';
+import MenuBook from './component/MenuBook.js';
 
 export default MenuBook;
