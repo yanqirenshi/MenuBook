@@ -7,6 +7,7 @@ import * as u from '../../../../libs/yutils/index.js';
 export default function Avater (props) {
     const menu = props.menu;
     const actions = props.actions;
+    const icon = props.icon;
 
     const change = actions.menu.change;
 
@@ -43,7 +44,7 @@ export default function Avater (props) {
               borderRadius: 22,
           }}>
             <AvatarIcon alt="Mobilus"
-                        src={`${process.env.PUBLIC_URL}/Logo.svg`}
+                        src={icon}
                         sx={{width:22,height:22}}
                         onClick={click}
                         onMouseEnter={enterd}
