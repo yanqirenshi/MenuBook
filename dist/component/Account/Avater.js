@@ -16,6 +16,7 @@ var u = new _beach["default"]();
 function Avater(props) {
   var menu = props.menu;
   var actions = props.actions;
+  var icon = props.icon;
   var change = actions.menu.change;
   var click = function click() {
     return change(u.catom(menu, function (new_menu) {
@@ -51,7 +52,7 @@ function Avater(props) {
     }
   }, /*#__PURE__*/React.createElement(_Avatar["default"], {
     alt: "Mobilus",
-    src: "".concat(process.env.PUBLIC_URL, "/Logo.svg"),
+    src: icon,
     sx: {
       width: 22,
       height: 22
