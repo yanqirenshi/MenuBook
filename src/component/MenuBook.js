@@ -2,19 +2,24 @@ import * as React from 'react';
 import Avatar from './Account/Avater.js';
 import Menu from './Account/Menu.js';
 
-export default function Account (props) {
+export default function MenuBook (props) {
     const menu = props.menu;
     const actions = props.actions;
+    const is_opend = props.is_opend;
     const selected_item_code = props.selected_item;
+    const icon = props.icon;
 
     const selected_item = selectedItem(menu, selected_item_code);
 
     return (
         <>
-          <Avatar menu={menu} actions={actions}/>
+          <Avatar menu={menu}
+                  actions={actions}
+                  icon={icon}/>
 
           {isOpenMenu(menu) &&
            <Menu menu={menu}
+                 is_opend={is_opend}
                  selected_item={selected_item}
                  actions={actions}/>}
         </>

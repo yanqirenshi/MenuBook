@@ -9,12 +9,14 @@ import Head from './Menu/Head.js';
 import Foot from './Menu/Foot.js';
 import Item from './Menu/Item.js';
 // import Tabs from './Menu/Tabs.js';
+import Pages from '../Account/Pages.js';
 
 const u = new Beach();
 
 export default function Menu (props) {
     const menu = props.menu || [];
     const actions = props.actions;
+    const is_opend = props.is_opend;
     const selected_item = props.selected_item;
 
     const selected_page_num = menu.pages.findIndex(page=> page.label===menu.current_page);
@@ -32,21 +34,38 @@ export default function Menu (props) {
 
     const onClick = (item)=> actions.menu.item.click(item);
 
+    const onChangeIsOpend = (val)=> {
+        val ? actions.menu.open() : actions.menu.close();
+    };
+
+    const onClickPage = (v)=> {
+        if (menu.current_page===v)
+            return ;
+
+        actions.menu.close();
+
+        const new_menu = {...menu};
+        new_menu.current_page = v;
+        actions.menu.change(new_menu);
+    };
+
     return (
         <Box onMouseEnter={enterd}
              onMouseLeave={leaved}>
+
           <Paper sx={sx()}>
             <Head/>
 
-            {/* <Tabs menu={menu} actions={actions}/> */}
+            <Pages menu={menu}
+                   is_opend={is_opend}
+                   actions={actions}
+                   onChange={onChangeIsOpend}
+                   onClick={onClickPage}/>
 
             <Box sx={sx().body}>
               {selected_page.items.map((item,i)=> {
                   return (
-                      <Box key={item.url} sx={{
-                          mt:0.3,
-                          mb: 0.3,
-                      }}>
+                      <Box key={item.url} sx={{mt:0.3,mb: 0.3}}>
                         <Item key={i}
                               data={item}
                               selected={item.code===selected_item.code}
