@@ -10,8 +10,9 @@ export default function ToggleButton (props) {
     const sx = {
         width: 'fit-content',
         cursor: 'pointer',
-        color: '#fff',
-        background: 'none',
+        fontWeight: is_opend ? 'bold' : 'normal',
+        color: is_opend ? '#333' : '#fff',
+        background: is_opend ? 'rgba(255,255,255,0.6)' : 'none',
         width:'100%',
         display:'flex',
         justifyContent:'center',

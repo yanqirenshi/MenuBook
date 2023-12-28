@@ -4,13 +4,14 @@ import Box from '@mui/material/Box';
 import { useElementPosition } from "./Dropdown/useElementPosition.js";
 
 import ToggleButton from './Dropdown/ToggleButton.js';
-import Items from './Dropdown/Items.js';
+import Pages from './Dropdown/Pages.js';
 
 export default function Dropdown (props) {
     const menu = props.menu;
     const is_opend = props.is_opend;
     const onChange = props.onChange;
     const onClick = props.onClick;
+    const onClickItem = props.onClickItem;
 
     const is_in_upper_half = props.isInUpperHalf || true;
 
@@ -30,10 +31,11 @@ export default function Dropdown (props) {
             {menu.current_page}
           </ToggleButton>
 
-          <Items menu={menu}
+          <Pages menu={menu}
                  is_opend={is_opend}
                  is_in_upper_half={is_in_upper_half}
-                 onClick={onClick}/>
+                 onClick={onClick}
+                 onClickItem={onClickItem}/>
 
         </Box>
     );

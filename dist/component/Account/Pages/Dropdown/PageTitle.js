@@ -4,22 +4,21 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = Item;
+exports["default"] = PageTitle;
 var React = _interopRequireWildcard(require("react"));
 var _Typography = _interopRequireDefault(require("@mui/material/Typography"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != _typeof(e) && "function" != typeof e) return { "default": e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n["default"] = e, t && t.set(e, n), n; }
-function Item(props) {
-  var item = props.item;
+function PageTitle(props) {
+  var page = props.page;
   var _onClick = props.onClick;
   return /*#__PURE__*/React.createElement(_Typography["default"], {
-    sx: {
-      whiteSpace: 'nowrap'
-    },
-    onClick: function onClick() {
-      return _onClick(item);
+    key: page.label,
+    variant: "h6",
+    onClick: function onClick(e) {
+      return _onClick && _onClick(page.label);
     }
-  }, item.label);
+  }, page.label);
 }
 ;

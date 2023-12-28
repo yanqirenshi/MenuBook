@@ -6,8 +6,8 @@ export default function Item (props) {
     const onClick = props.onClick;
 
     return (
-        <S key={item.label}
-           onClick={(e)=> onClick && onClick(item.label)}>
+        <S sx={{whiteSpace: 'nowrap'}}
+           onClick={()=> onClick(item)}>
           {item.label}
         </S>
     );

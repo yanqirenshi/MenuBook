@@ -8,6 +8,7 @@ export default function Pages (props) {
     const is_opend = props.is_opend;
     const onChange = props.onChange;
     const onClick = props.onClick;
+    const onClickItem = props.onClickItem;
 
     const sx = {
         borderBottom: '1px solid #bbb',
@@ -20,7 +21,8 @@ export default function Pages (props) {
           <Dropdown menu={menu}
                     is_opend={is_opend}
                     onChange={onChange}
-                    onClick={onClick}/>
+                    onClick={onClick}
+                    onClickItem={onClickItem}/>
         </Box>
     );
 };

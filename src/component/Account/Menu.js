@@ -60,7 +60,8 @@ export default function Menu (props) {
                    is_opend={is_opend}
                    actions={actions}
                    onChange={onChangeIsOpend}
-                   onClick={onClickPage}/>
+                   onClick={onClickPage}
+                   onClickItem={onClick}/>
 
             <Box sx={sx().body}>
               {selected_page.items.map((item,i)=> {

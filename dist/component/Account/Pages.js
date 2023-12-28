@@ -16,6 +16,7 @@ function Pages(props) {
   var is_opend = props.is_opend;
   var onChange = props.onChange;
   var onClick = props.onClick;
+  var onClickItem = props.onClickItem;
   var sx = {
     borderBottom: '1px solid #bbb',
     padding: '0px 0px',
@@ -27,7 +28,8 @@ function Pages(props) {
     menu: menu,
     is_opend: is_opend,
     onChange: onChange,
-    onClick: onClick
+    onClick: onClick,
+    onClickItem: onClickItem
   }));
 }
 ;
