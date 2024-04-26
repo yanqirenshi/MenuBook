@@ -93,8 +93,8 @@ function sx () {
         display: 'flex',
         flexDirection: 'column',
         body: {
-            maxWidth: 45,
-            minWidth: 45,
+            maxWidth: 55,
+            minWidth: 55,
             padding: '5px 5px',
             display: 'flex',
             flexDirection: 'column',

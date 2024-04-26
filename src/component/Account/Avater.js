@@ -41,13 +41,13 @@ export default function Avater (props) {
               justifyContent: 'center',
               alignItems: 'center',
               background: '#fff',
-              width: 22,
-              height: 22,
-              borderRadius: 22,
+              width: 33,
+              height: 33,
+              borderRadius: 33,
           }}>
             <AvatarIcon alt="Mobilus"
                         src={icon}
-                        sx={{width:22,height:22}}
+                        sx={{width:33,height:33}}
                         onClick={click}
                         onMouseEnter={enterd}
                         onMouseLeave={leaved}/>
@@ -60,8 +60,8 @@ export default function Avater (props) {
 function sx (menu) {
     return {
         position: 'fixed',
-        top: 20,
-        left: 20,
+        top: 15,
+        left: 15,
         padding: 0.5,
         borderRadius: 22,
         zIndex: 8888888,
