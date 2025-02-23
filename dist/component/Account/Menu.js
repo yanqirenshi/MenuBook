@@ -60,7 +60,7 @@ function Menu(props) {
     onMouseEnter: enterd,
     onMouseLeave: leaved
   }, /*#__PURE__*/React.createElement(_Paper["default"], {
-    sx: sx()
+    sx: sx(theme_color)
   }, /*#__PURE__*/React.createElement(_Head["default"], null), /*#__PURE__*/React.createElement(_Pages["default"], {
     menu: menu,
     is_opend: is_opend,

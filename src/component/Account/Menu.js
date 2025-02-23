@@ -54,7 +54,7 @@ export default function Menu (props) {
         <Box onMouseEnter={enterd}
              onMouseLeave={leaved}>
 
-          <Paper sx={sx()}>
+          <Paper sx={sx(theme_color)}>
             <Head/>
 
             <Pages menu={menu}
