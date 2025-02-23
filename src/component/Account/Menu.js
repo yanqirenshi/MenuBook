@@ -18,6 +18,7 @@ export default function Menu (props) {
     const actions = props.actions;
     const is_opend = props.is_opend;
     const selected_item = props.selected_item;
+    const theme_color = props.theme_color;
 
     const selected_page_num = menu.pages.findIndex(page=> page.label===menu.current_page);
     const selected_page = menu.pages[selected_page_num];
@@ -63,14 +64,15 @@ export default function Menu (props) {
                    onClick={onClickPage}
                    onClickItem={onClick}/>
 
-            <Box sx={sx().body}>
+            <Box sx={sx(theme_color).body}>
               {selected_page.items.map((item,i)=> {
                   return (
                       <Box key={item.url} sx={{mt:0.3,mb: 0.3}}>
                         <Item key={i}
                               data={item}
                               selected={item.code===selected_item.code}
-                              onClick={onClick}/>
+                              onClick={onClick}
+                              theme_color={theme_color}/>
                       </Box>
                   );
               })}
@@ -82,12 +84,12 @@ export default function Menu (props) {
     );
 }
 
-function sx () {
+function sx (theme_color) {
     return {
         position: 'fixed',
         top: 8,
         left: 8,
-        background: 'rgba(8, 156, 163, 1.0)',
+        background: `rgba(${theme_color.r}, ${theme_color.g}, ${theme_color.b}, 1.0)`,
         // height: '100vh',
         zIndex: 8888887,
         display: 'flex',

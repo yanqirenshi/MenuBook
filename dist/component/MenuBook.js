@@ -20,6 +20,11 @@ function MenuBook(props) {
   var is_opend = props.is_opend;
   var selected_item_code = props.selected_item;
   var icon = props.icon;
+  var theme_color = props.theme_color || {
+    r: 157,
+    g: 91,
+    b: 139
+  };
   var selected_item = selectedItem(menu, selected_item_code);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_Avater["default"], {
     menu: menu,
@@ -29,7 +34,8 @@ function MenuBook(props) {
     menu: menu,
     is_opend: is_opend,
     selected_item: selected_item,
-    actions: actions
+    actions: actions,
+    theme_color: theme_color
   }));
 }
 function isOpenMenu(menu) {

@@ -5,6 +5,7 @@ export default function Item (props) {
     const item = props.data;
     const is_selected = props.selected;
     const onClick = props.onClick;
+    const theme_color = props.theme_color;
 
     const [is_hover, setIsHover] = React.useState(false);
 
@@ -13,7 +14,7 @@ export default function Item (props) {
              sx={{
                  width: boxWidth(is_hover, is_selected, 33),
                  height: 33,
-                 background: 'rgba(8, 156, 163, 1.0)',
+                 background: `rgba(${theme_color.r}, ${theme_color.g}, ${theme_color.b}, 1.0)`,
                  padding: '4px',
                  borderRadius: '5px',
                  marginLeft: 'auto',
@@ -25,7 +26,7 @@ export default function Item (props) {
 
 
           <Box sx={{
-              background: background(is_hover, is_selected),
+              background: background(is_hover, is_selected, theme_color),
               width: boxWidth(is_hover, is_selected, '100%'),
               height:'100%',
               display: 'flex',
@@ -34,7 +35,7 @@ export default function Item (props) {
               borderRadius: '4px',
               padding: (is_hover || is_selected) ? '0px 11px 0px 11px' : 0,
 
-              color: color(is_hover, is_selected),
+              color: color(is_hover, is_selected, theme_color),
               whiteSpace: 'nowrap',
               fontWeight:'bold',
           }}>
@@ -51,16 +52,16 @@ function boxWidth (is_hover, is_selected, normal) {
     return (is_hover || is_selected) ? 'fit-content' : normal;
 }
 
-function color (is_hover, is_selected) {
+function color (is_hover, is_selected, theme_color) {
     if (is_selected)
-        return 'rgba(8, 156, 163, 1.0)';
+        return `rgba(${theme_color.r}, ${theme_color.g}, ${theme_color.b}, 1.0)`;
 
     return '#ffffff';
 }
 
-function background (is_hover, is_selected) {
+function background (is_hover, is_selected, theme_color) {
     if (is_selected)
         return '#ffffff';
 
-    return 'rgba(8, 156, 163, 1.0)';
+    return `rgba(${theme_color.r}, ${theme_color.g}, ${theme_color.b}, 1.0)`;
 }

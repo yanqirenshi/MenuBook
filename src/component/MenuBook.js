@@ -8,6 +8,7 @@ export default function MenuBook (props) {
     const is_opend = props.is_opend;
     const selected_item_code = props.selected_item;
     const icon = props.icon;
+    const theme_color = props.theme_color || {r:157, g:91, b:139};
 
     const selected_item = selectedItem(menu, selected_item_code);
 
@@ -21,7 +22,8 @@ export default function MenuBook (props) {
            <Menu menu={menu}
                  is_opend={is_opend}
                  selected_item={selected_item}
-                 actions={actions}/>}
+                 actions={actions}
+                 theme_color={theme_color}/>}
         </>
     );
 }

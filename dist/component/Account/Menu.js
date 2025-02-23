@@ -27,6 +27,7 @@ function Menu(props) {
   var actions = props.actions;
   var is_opend = props.is_opend;
   var selected_item = props.selected_item;
+  var theme_color = props.theme_color;
   var selected_page_num = menu.pages.findIndex(function (page) {
     return page.label === menu.current_page;
   });
@@ -68,7 +69,7 @@ function Menu(props) {
     onClick: onClickPage,
     onClickItem: onClick
   }), /*#__PURE__*/React.createElement(_Box["default"], {
-    sx: sx().body
+    sx: sx(theme_color).body
   }, selected_page.items.map(function (item, i) {
     return /*#__PURE__*/React.createElement(_Box["default"], {
       key: item.url,
@@ -80,16 +81,17 @@ function Menu(props) {
       key: i,
       data: item,
       selected: item.code === selected_item.code,
-      onClick: onClick
+      onClick: onClick,
+      theme_color: theme_color
     }));
   })), /*#__PURE__*/React.createElement(_Foot["default"], null)));
 }
-function sx() {
+function sx(theme_color) {
   return {
     position: 'fixed',
     top: 8,
     left: 8,
-    background: 'rgba(8, 156, 163, 1.0)',
+    background: "rgba(".concat(theme_color.r, ", ").concat(theme_color.g, ", ").concat(theme_color.b, ", 1.0)"),
     // height: '100vh',
     zIndex: 8888887,
     display: 'flex',

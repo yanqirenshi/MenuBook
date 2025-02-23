@@ -20,6 +20,7 @@ function Item(props) {
   var item = props.data;
   var is_selected = props.selected;
   var _onClick = props.onClick;
+  var theme_color = props.theme_color;
   var _React$useState = React.useState(false),
     _React$useState2 = _slicedToArray(_React$useState, 2),
     is_hover = _React$useState2[0],
@@ -29,7 +30,7 @@ function Item(props) {
     sx: {
       width: boxWidth(is_hover, is_selected, 33),
       height: 33,
-      background: 'rgba(8, 156, 163, 1.0)',
+      background: "rgba(".concat(theme_color.r, ", ").concat(theme_color.g, ", ").concat(theme_color.b, ", 1.0)"),
       padding: '4px',
       borderRadius: '5px',
       marginLeft: 'auto',
@@ -46,7 +47,7 @@ function Item(props) {
     }
   }, /*#__PURE__*/React.createElement(_Box["default"], {
     sx: {
-      background: background(is_hover, is_selected),
+      background: background(is_hover, is_selected, theme_color),
       width: boxWidth(is_hover, is_selected, '100%'),
       height: '100%',
       display: 'flex',
@@ -54,7 +55,7 @@ function Item(props) {
       alignItems: 'center',
       borderRadius: '4px',
       padding: is_hover || is_selected ? '0px 11px 0px 11px' : 0,
-      color: color(is_hover, is_selected),
+      color: color(is_hover, is_selected, theme_color),
       whiteSpace: 'nowrap',
       fontWeight: 'bold'
     }
@@ -63,11 +64,11 @@ function Item(props) {
 function boxWidth(is_hover, is_selected, normal) {
   return is_hover || is_selected ? 'fit-content' : normal;
 }
-function color(is_hover, is_selected) {
-  if (is_selected) return 'rgba(8, 156, 163, 1.0)';
+function color(is_hover, is_selected, theme_color) {
+  if (is_selected) return "rgba(".concat(theme_color.r, ", ").concat(theme_color.g, ", ").concat(theme_color.b, ", 1.0)");
   return '#ffffff';
 }
-function background(is_hover, is_selected) {
+function background(is_hover, is_selected, theme_color) {
   if (is_selected) return '#ffffff';
-  return 'rgba(8, 156, 163, 1.0)';
+  return "rgba(".concat(theme_color.r, ", ").concat(theme_color.g, ", ").concat(theme_color.b, ", 1.0)");
 }
