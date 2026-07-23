@@ -6,7 +6,15 @@ export default function Item (props) {
     const onClick = props.onClick;
 
     return (
-        <S sx={{whiteSpace: 'nowrap'}}
+        <S sx={{
+            whiteSpace: 'nowrap',
+            cursor: 'pointer',
+            borderRadius: '4px',
+            padding: '2px 4px',
+            '&:hover': {
+                backgroundColor: 'rgba(0, 0, 0, 0.08)',
+            },
+        }}
            onClick={()=> onClick(item)}>
           {item.label}
         </S>

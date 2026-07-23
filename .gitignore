@@ -35,3 +35,7 @@ documents/.eslintcache
 
 # example
 example/.eslintcache
+example/dist
+
+# local Claude Code settings
+.claude/settings.local.json

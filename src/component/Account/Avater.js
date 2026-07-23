@@ -60,8 +60,8 @@ export default function Avater (props) {
 function sx (menu) {
     return {
         position: 'fixed',
-        top: 15,
-        left: 15,
+        top: 20,
+        left: 20,
         padding: 0.5,
         borderRadius: 22,
         zIndex: 8888888,

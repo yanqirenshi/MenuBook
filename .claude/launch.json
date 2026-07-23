@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "menubook-example",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "example", "run", "dev"],
+      "port": 5173
+    }
+  ]
+}

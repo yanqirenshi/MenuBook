@@ -25,7 +25,7 @@ export default function Pages (props) {
             borderRadius: '4px',
             boxShadow: 'var(--border-gray) 0 1px 3px 0',
             top: 'calc(100% - 34px)',
-            left: '66px',
+            left: '74px',
             background: '#ffffff',
             boxShadow: '0px 0px 11px #888',
             display:'flex',
