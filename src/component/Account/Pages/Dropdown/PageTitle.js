@@ -9,6 +9,9 @@ export default function PageTitle (props) {
         <S key={page.label}
            variant="h6"
            sx={{
+               display: 'flex',
+               alignItems: 'center',
+               gap: '6px',
                cursor: 'pointer',
                borderRadius: '4px',
                padding: '2px 4px',
@@ -17,6 +20,10 @@ export default function PageTitle (props) {
                },
            }}
            onClick={(e)=> onClick && onClick(page.label)}>
+          {page.icon &&
+           <img src={page.icon}
+                alt={page.label}
+                style={{width: 20, height: 20, display: 'block'}}/>}
           {page.label}
         </S>
     );

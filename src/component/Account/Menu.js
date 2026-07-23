@@ -33,7 +33,12 @@ export default function Menu (props) {
         new_menu.menu.enterd = false;
     }));
 
-    const onClick = (item)=> actions.menu.item.click(item);
+    const onClick = (item)=> {
+        if (is_opend)
+            actions.menu.close();
+
+        actions.menu.item.click(item);
+    };
 
     const onChangeIsOpend = (val)=> {
         val ? actions.menu.open() : actions.menu.close();

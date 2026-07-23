@@ -7,6 +7,9 @@ export default function Item (props) {
 
     return (
         <S sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
             whiteSpace: 'nowrap',
             cursor: 'pointer',
             borderRadius: '4px',
@@ -16,6 +19,10 @@ export default function Item (props) {
             },
         }}
            onClick={()=> onClick(item)}>
+          {item.icon &&
+           <img src={item.icon}
+                alt={item.label}
+                style={{width: 16, height: 16, display: 'block'}}/>}
           {item.label}
         </S>
     );

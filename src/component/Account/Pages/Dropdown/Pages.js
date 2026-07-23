@@ -30,11 +30,16 @@ export default function Pages (props) {
             boxShadow: '0px 0px 11px #888',
             display:'flex',
         }}>
-          {menu.pages.map(page=> {
+          {menu.pages.map((page, i)=> {
               return (
-                  <Box sx={{p:0.5, pl: 2, pr: 2}}>
-                    <PageTitle key={page.label}
-                               page={page}
+                  <Box key={page.label}
+                       sx={{
+                           p: 0.5,
+                           pl: 2,
+                           pr: 2,
+                           borderLeft: i > 0 ? '1px solid #ccc' : 'none',
+                       }}>
+                    <PageTitle page={page}
                                onClick={onClick}/>
 
                     <Box sx={{mt:1}}>

@@ -1,6 +1,8 @@
 import * as React from 'react';
 
 import MenuBook from '../../src/component/MenuBook.js';
+import Content from './Content.jsx';
+import { readmeIcon, dataIcon, componentsIcon, classesIcon, generalPageIcon, settingsPageIcon } from './icons.js';
 
 const initialMenu = {
     avater: { clicked: false, enterd: false },
@@ -9,15 +11,17 @@ const initialMenu = {
     pages: [
         {
             label: 'General',
+            icon: generalPageIcon,
             items: [
-                { code: 'readme', url: '#/readme', label: 'README' },
-                { code: 'data', url: '#/data', label: 'DATA' },
-                { code: 'components', url: '#/components', label: 'Components' },
-                { code: 'classes', url: '#/classes', label: 'Classes' },
+                { code: 'readme', url: '#/readme', label: 'README', icon: readmeIcon },
+                { code: 'data', url: '#/data', label: 'DATA', icon: dataIcon },
+                { code: 'components', url: '#/components', label: 'Components', icon: componentsIcon },
+                { code: 'classes', url: '#/classes', label: 'Classes', icon: classesIcon },
             ],
         },
         {
             label: 'Settings',
+            icon: settingsPageIcon,
             items: [
                 { code: 'account', url: '#/account', label: 'Account' },
                 { code: 'billing', url: '#/billing', label: 'Billing' },
@@ -49,6 +53,8 @@ export default function App () {
           <p>左上のアバターアイコンをクリックまたはホバーすると、サイドメニューが開きます。</p>
           <p>Current page: <b>{menu.current_page}</b></p>
           <p>Selected item: <b>{selectedItem}</b></p>
+
+          <Content code={selectedItem}/>
 
           <MenuBook menu={menu}
                     actions={actions}

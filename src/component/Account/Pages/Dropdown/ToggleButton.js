@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 
 export default function ToggleButton (props) {
     const children = props.children;
+    const icon = props.icon;
 
     const is_opend = props.is_opend;
     const onChange = props.onChange;
@@ -16,14 +17,25 @@ export default function ToggleButton (props) {
         width:'100%',
         display:'flex',
         justifyContent:'center',
-        pt:0.1,
-        pb:0.8,
+        alignItems:'center',
+        gap: '6px',
+        pt: icon ? 0.45 : 0.1,
+        pb: icon ? 0.45 : 0.8,
     };
 
     return (
         <Box sx={sx}
              onClick={()=>onChange(!is_opend)}>
-          {children}
+          {icon
+            ? <img src={icon}
+                   alt={String(children)}
+                   style={{
+                       width: 16,
+                       height: 16,
+                       display: 'block',
+                       filter: is_opend ? 'none' : 'invert(1) brightness(1.5)',
+                   }}/>
+            : children}
         </Box>
     );
 };

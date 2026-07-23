@@ -9,6 +9,8 @@ export default function Item (props) {
 
     const [is_hover, setIsHover] = React.useState(false);
 
+    const is_expanded = is_hover || is_selected;
+
     return (
         <Box title={item.label}
              sx={{
@@ -32,15 +34,29 @@ export default function Item (props) {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              gap: (item.icon && is_expanded) ? '8px' : 0,
               borderRadius: '4px',
-              padding: (is_hover || is_selected) ? '0px 11px 0px 11px' : 0,
+              padding: is_expanded ? '0px 11px 0px 11px' : 0,
 
               color: color(is_hover, is_selected, theme_color),
               whiteSpace: 'nowrap',
               fontWeight:'bold',
           }}>
 
-            {(is_hover || is_selected) ? item.label : item.label.substring(0,1)}
+            {item.icon &&
+             <img src={item.icon}
+                  alt={item.label}
+                  style={{
+                      width: 18,
+                      height: 18,
+                      display: 'block',
+                      // 背景が紫(未選択)のときは白っぽく、白背景(選択中)のときは元の色に
+                      filter: is_selected ? 'none' : 'invert(1) brightness(1.5)',
+                  }}/>}
+
+            {item.icon
+              ? (is_expanded && item.label)
+              : (is_expanded ? item.label : item.label.substring(0,1))}
 
           </Box>
 

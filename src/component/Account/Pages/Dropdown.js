@@ -17,6 +17,8 @@ export default function Dropdown (props) {
 
     const [is_open, setIsOpen] = React.useState(false);
 
+    const current_page = menu.pages.find(page=> page.label===menu.current_page);
+
     return (
         <Box sx={{
             position: 'relative',
@@ -27,6 +29,7 @@ export default function Dropdown (props) {
         }}>
 
           <ToggleButton is_opend={is_opend}
+                        icon={current_page && current_page.icon}
                         onChange={onChange}>
             {menu.current_page}
           </ToggleButton>
