@@ -10,7 +10,20 @@ React 用のサイドメニュー(アカウントメニュー)コンポーネン
 npm install @yanqirenshi/menubook
 ```
 
-React 18 系がインストールされている必要があります(`react` / `react-dom` は peerDependencies)。
+次のパッケージは peerDependencies です。アプリ側でインストールしてください(アプリが使っている MUI をそのまま使うため、MenuBook は MUI を同梱しません)。
+
+| パッケージ | 範囲 | 動作を確かめた版 |
+| --- | --- | --- |
+| `react` / `react-dom` | `^18.0.0 || ^19.0.0` | 18.3.1 / 19.3.1 |
+| `@mui/material` / `@mui/icons-material` | `^5.14.20 || ^6.0.0 || ^7.0.0 || ^9.0.0` | 5.18.0 / 6.5.0 / 7.3.11 / 9.5.0 |
+| `@emotion/react` / `@emotion/styled` | `^11.11.0` | 11.14 |
+
+```bash
+npm install react react-dom @mui/material @mui/icons-material @emotion/react @emotion/styled
+```
+
+MUI を使っているアプリは、すでに入っているので、追加は要りません。
+アプリの `ThemeProvider` のテーマが、そのまま使われます。
 
 ### 使い方
 
@@ -123,8 +136,9 @@ npm run dev --workspace example
 
 ### 依存ライブラリ
 
-- [React](https://react.dev/) 18
-- [MUI](https://mui.com/) (`@mui/material`, `@mui/icons-material`)
+- [React](https://react.dev/) 18 / 19 (peerDependencies)
+- [MUI](https://mui.com/) (`@mui/material`, `@mui/icons-material`。peerDependencies)
+- [Emotion](https://emotion.sh/) (`@emotion/react`, `@emotion/styled`。peerDependencies)
 - [@yanqirenshi/beach](https://www.npmjs.com/package/@yanqirenshi/beach) — イミュータブルな状態更新ヘルパー
 
 ### ライセンス
