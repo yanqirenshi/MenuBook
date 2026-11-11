@@ -3,15 +3,13 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 
-import Beach from '@yanqirenshi/beach';
+import { MENU_TOP, MENU_LEFT, MENU_WIDTH, MENU_PADDING_X } from './layout.js';
 
 import Head from './Menu/Head.js';
 import Foot from './Menu/Foot.js';
 import Item from './Menu/Item.js';
 // import Tabs from './Menu/Tabs.js';
 import Pages from '../Account/Pages.js';
-
-const u = new Beach();
 
 export default function Menu (props) {
     const menu = props.menu || [];
@@ -23,15 +21,15 @@ export default function Menu (props) {
     const selected_page_num = menu.pages.findIndex(page=> page.label===menu.current_page);
     const selected_page = menu.pages[selected_page_num];
 
-    const change = actions.menu.change;
+    const changeMenu = props.changeMenu;
 
-    const enterd = ()=> change(u.catom(menu, (new_menu)=> {
+    const enterd = ()=> changeMenu((new_menu)=> {
         new_menu.menu.enterd = true;
-    }));
+    });
 
-    const leaved = ()=> change(u.catom(menu, (new_menu)=> {
+    const leaved = ()=> changeMenu((new_menu)=> {
         new_menu.menu.enterd = false;
-    }));
+    });
 
     const onClick = (item)=> {
         if (is_opend)
@@ -92,17 +90,20 @@ export default function Menu (props) {
 function sx (theme_color) {
     return {
         position: 'fixed',
-        top: 8,
-        left: 8,
+        top: MENU_TOP,
+        left: MENU_LEFT,
+        // 利用側の box-sizing に左右されないように、幅を固定する。
+        width: MENU_WIDTH,
+        boxSizing: 'border-box',
         background: `rgba(${theme_color.r}, ${theme_color.g}, ${theme_color.b}, 1.0)`,
         // height: '100vh',
         zIndex: 8888887,
         display: 'flex',
         flexDirection: 'column',
         body: {
-            maxWidth: 55,
-            minWidth: 55,
-            padding: '5px 5px',
+            width: MENU_WIDTH,
+            boxSizing: 'border-box',
+            padding: `5px ${MENU_PADDING_X}px`,
             display: 'flex',
             flexDirection: 'column',
             flexGrow: 1,
