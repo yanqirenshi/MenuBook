@@ -66,14 +66,22 @@ function Item(props) {
     style: {
       width: 18,
       height: 18,
+      // 利用側のリセット CSS (img { max-width: 100% } など) で
+      // アイコンが縮んだり、幅の計算から外れたりしないようにする。
+      maxWidth: 'none',
+      flexShrink: 0,
       display: 'block',
       // 背景が紫(未選択)のときは白っぽく、白背景(選択中)のときは元の色に
       filter: is_selected ? 'none' : 'invert(1) brightness(1.5)'
     }
   }), item.icon ? is_expanded && item.label : is_expanded ? item.label : item.label.substring(0, 1)));
 }
+
+// 選択中とホバー中は、中身(アイコン・文字・padding)がちょうど収まる幅にする。
+// fit-content だと、メニューの幅で頭を抑えられたときに最小幅まで縮み、
+// 足りないぶんが左右の padding から削られる。
 function boxWidth(is_hover, is_selected, normal) {
-  return is_hover || is_selected ? 'fit-content' : normal;
+  return is_hover || is_selected ? 'max-content' : normal;
 }
 function color(is_hover, is_selected, theme_color) {
   if (is_selected) return "rgba(".concat(theme_color.r, ", ").concat(theme_color.g, ", ").concat(theme_color.b, ", 1.0)");
